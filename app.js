@@ -43,7 +43,7 @@ app.post("/", (req, res) => {
 
   const request = https.request(url, options, (response) => {
     if (response.statusCode === 200) {
-      res.sendFile(__dirname + "/success.html");
+      res.sendFile(__dirname + "/intro.html");
     } else {
       res.sendFile(__dirname + "/failure.html");
     }
@@ -55,6 +55,10 @@ app.post("/", (req, res) => {
 
 app.post("/failure", (req, res) => {
   res.redirect("/");
+});
+
+app.post("/rent", (req, res) => {
+  res.sendFile(__dirname + "/success.html");
 });
 
 app.listen(3000, () => {
